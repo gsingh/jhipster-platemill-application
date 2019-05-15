@@ -1,0 +1,26 @@
+{
+  "platemillApp": {
+    "production": {
+      "home": {
+        "title": "Productions",
+        "createLabel": "नया Production बनाएँ",
+        "createOrEditLabel": "Production बनाएँ या संपादित करें",
+        "search": "Production खोजें"
+      },
+      "created": "एक नया Production [identifier: {{ param }}] तैयार है",
+      "updated": "एक Production [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Production [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Production [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Production"
+      },
+      "prodDate": "Prod Date",
+      "shift": "Shift",
+      "noOfPlates": "No Of Plates",
+      "prodTonnage": "Prod Tonnage",
+      "manager": "Manager"
+    }
+  }
+}

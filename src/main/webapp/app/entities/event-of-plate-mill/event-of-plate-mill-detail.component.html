@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="eventOfPlateMill">
+            <h2><span jhiTranslate="platemillApp.eventOfPlateMill.detail.title">Event Of Plate Mill</span> {{eventOfPlateMill.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="platemillApp.eventOfPlateMill.eventDate">Event Date</span></dt>
+                <dd>
+                    <span>{{eventOfPlateMill.eventDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="platemillApp.eventOfPlateMill.eventName">Event Name</span></dt>
+                <dd>
+                    <span>{{eventOfPlateMill.eventName}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/event-of-plate-mill', eventOfPlateMill.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+{
+  "platemillApp": {
+    "normalising": {
+      "home": {
+        "title": "Normalisings",
+        "createLabel": "नया Normalising बनाएँ",
+        "createOrEditLabel": "Normalising बनाएँ या संपादित करें",
+        "search": "Normalising खोजें"
+      },
+      "created": "एक नया Normalising [identifier: {{ param }}] तैयार है",
+      "updated": "एक Normalising [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Normalising [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Normalising [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Normalising"
+      },
+      "normalisingDate": "Normalising Date",
+      "shift": "Shift",
+      "noOfPlates": "No Of Plates",
+      "normalisedTonnage": "Normalised Tonnage",
+      "manager": "Manager"
+    }
+  }
+}

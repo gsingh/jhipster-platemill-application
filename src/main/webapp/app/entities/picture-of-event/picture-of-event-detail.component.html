@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="pictureOfEvent">
+            <h2><span jhiTranslate="platemillApp.pictureOfEvent.detail.title">Picture Of Event</span> {{pictureOfEvent.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="platemillApp.pictureOfEvent.picDate">Pic Date</span></dt>
+                <dd>
+                    <span>{{pictureOfEvent.picDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="platemillApp.pictureOfEvent.imgFile">Img File</span></dt>
+                <dd>
+                    <div *ngIf="pictureOfEvent.imgFile">
+                        <a (click)="openFile(pictureOfEvent.imgFileContentType, pictureOfEvent.imgFile)" jhiTranslate="entity.action.open">open</a>
+                        {{pictureOfEvent.imgFileContentType}}, {{byteSize(pictureOfEvent.imgFile)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="platemillApp.pictureOfEvent.eventPM">Event PM</span></dt>
+                <dd>
+                    <div *ngIf="pictureOfEvent.eventPM">
+                        <a [routerLink]="['/event-of-plate-mill', pictureOfEvent.eventPM?.id, 'view']">{{pictureOfEvent.eventPM?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/picture-of-event', pictureOfEvent.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

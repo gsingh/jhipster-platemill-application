@@ -11,6 +11,18 @@
     <property name="floatType" value="float" dbms="mysql, oracle, mssql, mariadb"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190515122359_added_entity_Production.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190515122400_added_entity_EventOfPlateMill.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190515122401_added_entity_PictureOfEvent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190515122402_added_entity_ShiftManager.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190515122403_added_entity_HeavyPlateFinished.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190515122404_added_entity_Normalising.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190515122405_added_entity_Shipping.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190515122359_added_entity_constraints_Production.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190515122401_added_entity_constraints_PictureOfEvent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190515122403_added_entity_constraints_HeavyPlateFinished.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190515122404_added_entity_constraints_Normalising.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190515122405_added_entity_constraints_Shipping.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

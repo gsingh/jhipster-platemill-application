@@ -1,0 +1,27 @@
+{
+  "platemillApp": {
+    "shipping": {
+      "home": {
+        "title": "Shippings",
+        "createLabel": "Create a new Shipping",
+        "createOrEditLabel": "Create or edit a Shipping",
+        "search": "Search for Shipping"
+      },
+      "created": "A new Shipping is created with identifier {{ param }}",
+      "updated": "A Shipping is updated with identifier {{ param }}",
+      "deleted": "A Shipping is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Shipping {{ id }}?"
+      },
+      "detail": {
+        "title": "Shipping"
+      },
+      "shippingDate": "Shipping Date",
+      "shift": "Shift",
+      "noOfWagons": "No Of Wagons",
+      "noOfTrailers": "No Of Trailers",
+      "shippedTonnage": "Shipped Tonnage",
+      "manager": "Manager"
+    }
+  }
+}

@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-heavy-plate-finished-heading" jhiTranslate="platemillApp.heavyPlateFinished.home.createOrEditLabel">Create or edit a Heavy Plate Finished</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!heavyPlateFinished.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platemillApp.heavyPlateFinished.hPFinishedDate" for="field_hPFinishedDate">H P Finished Date</label>
+                    <div class="input-group">
+                        <input id="field_hPFinishedDate" type="text" class="form-control" name="hPFinishedDate" ngbDatepicker  #hPFinishedDateDp="ngbDatepicker" formControlName="hPFinishedDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="hPFinishedDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('hPFinishedDate').invalid && (editForm.get('hPFinishedDate').dirty || editForm.get('hPFinishedDate').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('hPFinishedDate').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platemillApp.heavyPlateFinished.shift" for="field_shift">Shift</label>
+                    <select class="form-control" name="shift" formControlName="shift" id="field_shift">
+                        <option value="A">{{'platemillApp.Shift.A' | translate}}</option>
+                        <option value="B">{{'platemillApp.Shift.B' | translate}}</option>
+                        <option value="C">{{'platemillApp.Shift.C' | translate}}</option>
+                    </select>
+                    <div *ngIf="editForm.get('shift').invalid && (editForm.get('shift').dirty || editForm.get('shift').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('shift').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platemillApp.heavyPlateFinished.noOfPlates" for="field_noOfPlates">No Of Plates</label>
+                    <input type="number" class="form-control" name="noOfPlates" id="field_noOfPlates"
+                           formControlName="noOfPlates"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platemillApp.heavyPlateFinished.hPFinishedTonnage" for="field_hPFinishedTonnage">H P Finished Tonnage</label>
+                    <input type="number" class="form-control" name="hPFinishedTonnage" id="field_hPFinishedTonnage"
+                           formControlName="hPFinishedTonnage"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platemillApp.heavyPlateFinished.manager" for="field_manager">Manager</label>
+                    <select class="form-control" id="field_manager" name="manager" formControlName="manager">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="shiftManagerOption.id === editForm.get('manager').value?.id ? editForm.get('manager').value : shiftManagerOption" *ngFor="let shiftManagerOption of shiftmanagers; trackBy: trackShiftManagerById">{{shiftManagerOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

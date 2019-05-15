@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="shipping">
+            <h2><span jhiTranslate="platemillApp.shipping.detail.title">Shipping</span> {{shipping.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="platemillApp.shipping.shippingDate">Shipping Date</span></dt>
+                <dd>
+                    <span>{{shipping.shippingDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="platemillApp.shipping.shift">Shift</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'platemillApp.Shift.' + shipping.shift}}">{{shipping.shift}}</span>
+                </dd>
+                <dt><span jhiTranslate="platemillApp.shipping.noOfWagons">No Of Wagons</span></dt>
+                <dd>
+                    <span>{{shipping.noOfWagons}}</span>
+                </dd>
+                <dt><span jhiTranslate="platemillApp.shipping.noOfTrailers">No Of Trailers</span></dt>
+                <dd>
+                    <span>{{shipping.noOfTrailers}}</span>
+                </dd>
+                <dt><span jhiTranslate="platemillApp.shipping.shippedTonnage">Shipped Tonnage</span></dt>
+                <dd>
+                    <span>{{shipping.shippedTonnage}}</span>
+                </dd>
+                <dt><span jhiTranslate="platemillApp.shipping.manager">Manager</span></dt>
+                <dd>
+                    <div *ngIf="shipping.manager">
+                        <a [routerLink]="['/shift-manager', shipping.manager?.id, 'view']">{{shipping.manager?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/shipping', shipping.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

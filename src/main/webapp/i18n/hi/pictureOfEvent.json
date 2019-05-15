@@ -1,0 +1,24 @@
+{
+  "platemillApp": {
+    "pictureOfEvent": {
+      "home": {
+        "title": "PictureOfEvents",
+        "createLabel": "नया Picture Of Event बनाएँ",
+        "createOrEditLabel": "Picture Of Event बनाएँ या संपादित करें",
+        "search": "Picture Of Event खोजें"
+      },
+      "created": "एक नया Picture Of Event [identifier: {{ param }}] तैयार है",
+      "updated": "एक Picture Of Event [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Picture Of Event [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Picture Of Event [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Picture Of Event"
+      },
+      "picDate": "Pic Date",
+      "imgFile": "Img File",
+      "eventPM": "Event PM"
+    }
+  }
+}

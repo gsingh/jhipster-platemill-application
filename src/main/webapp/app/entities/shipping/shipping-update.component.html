@@ -1,0 +1,75 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-shipping-heading" jhiTranslate="platemillApp.shipping.home.createOrEditLabel">Create or edit a Shipping</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!shipping.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platemillApp.shipping.shippingDate" for="field_shippingDate">Shipping Date</label>
+                    <div class="input-group">
+                        <input id="field_shippingDate" type="text" class="form-control" name="shippingDate" ngbDatepicker  #shippingDateDp="ngbDatepicker" formControlName="shippingDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="shippingDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('shippingDate').invalid && (editForm.get('shippingDate').dirty || editForm.get('shippingDate').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('shippingDate').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platemillApp.shipping.shift" for="field_shift">Shift</label>
+                    <select class="form-control" name="shift" formControlName="shift" id="field_shift">
+                        <option value="A">{{'platemillApp.Shift.A' | translate}}</option>
+                        <option value="B">{{'platemillApp.Shift.B' | translate}}</option>
+                        <option value="C">{{'platemillApp.Shift.C' | translate}}</option>
+                    </select>
+                    <div *ngIf="editForm.get('shift').invalid && (editForm.get('shift').dirty || editForm.get('shift').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('shift').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platemillApp.shipping.noOfWagons" for="field_noOfWagons">No Of Wagons</label>
+                    <input type="number" class="form-control" name="noOfWagons" id="field_noOfWagons"
+                           formControlName="noOfWagons"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platemillApp.shipping.noOfTrailers" for="field_noOfTrailers">No Of Trailers</label>
+                    <input type="number" class="form-control" name="noOfTrailers" id="field_noOfTrailers"
+                           formControlName="noOfTrailers"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platemillApp.shipping.shippedTonnage" for="field_shippedTonnage">Shipped Tonnage</label>
+                    <input type="number" class="form-control" name="shippedTonnage" id="field_shippedTonnage"
+                           formControlName="shippedTonnage"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platemillApp.shipping.manager" for="field_manager">Manager</label>
+                    <select class="form-control" id="field_manager" name="manager" formControlName="manager">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="shiftManagerOption.id === editForm.get('manager').value?.id ? editForm.get('manager').value : shiftManagerOption" *ngFor="let shiftManagerOption of shiftmanagers; trackBy: trackShiftManagerById">{{shiftManagerOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

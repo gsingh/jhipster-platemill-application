@@ -1,0 +1,36 @@
+{
+    "name": "EventOfPlateMill",
+    "fields": [
+        {
+            "fieldName": "eventDate",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "eventName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pictureOfEvent",
+            "otherEntityRelationshipName": "eventPM",
+            "relationshipName": "pictureOfEvent"
+        }
+    ],
+    "changelogDate": "20190515122400",
+    "entityTableName": "event_of_plate_mill",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

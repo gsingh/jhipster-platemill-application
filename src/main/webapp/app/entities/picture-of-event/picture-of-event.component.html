@@ -1,0 +1,80 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="platemillApp.pictureOfEvent.home.title">Picture Of Events</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-picture-of-event" [routerLink]="['/picture-of-event/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="platemillApp.pictureOfEvent.home.createLabel">
+            Create new Picture Of Event
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'platemillApp.pictureOfEvent.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="pictureOfEvents">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="platemillApp.pictureOfEvent.picDate">Pic Date</span></th>
+            <th><span jhiTranslate="platemillApp.pictureOfEvent.imgFile">Img File</span></th>
+            <th><span jhiTranslate="platemillApp.pictureOfEvent.eventPM">Event PM</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let pictureOfEvent of pictureOfEvents ;trackBy: trackId">
+                <td><a [routerLink]="['/picture-of-event', pictureOfEvent.id, 'view' ]">{{pictureOfEvent.id}}</a></td>
+                <td>{{pictureOfEvent.picDate | date:'mediumDate'}}</td>
+                <td>
+                    <a *ngIf="pictureOfEvent.imgFile" (click)="openFile(pictureOfEvent.imgFileContentType, pictureOfEvent.imgFile)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="pictureOfEvent.imgFile">{{pictureOfEvent.imgFileContentType}}, {{byteSize(pictureOfEvent.imgFile)}}</span>
+                </td>
+                <td>
+                    <div *ngIf="pictureOfEvent.eventPM">
+                        <a [routerLink]="['../event-of-plate-mill', pictureOfEvent.eventPM?.id, 'view' ]" >{{pictureOfEvent.eventPM?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/picture-of-event', pictureOfEvent.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/picture-of-event', pictureOfEvent.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'picture-of-event', { outlets: { popup: pictureOfEvent.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

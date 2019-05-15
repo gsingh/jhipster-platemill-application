@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-picture-of-event-heading" jhiTranslate="platemillApp.pictureOfEvent.home.createOrEditLabel">Create or edit a Picture Of Event</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!pictureOfEvent.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platemillApp.pictureOfEvent.picDate" for="field_picDate">Pic Date</label>
+                    <div class="input-group">
+                        <input id="field_picDate" type="text" class="form-control" name="picDate" ngbDatepicker  #picDateDp="ngbDatepicker" formControlName="picDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="picDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platemillApp.pictureOfEvent.imgFile" for="field_imgFile">Img File</label>
+                    <div>
+                        <div *ngIf="editForm.get('imgFile').value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('imgFileContentType').value, editForm.get('imgFile').value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{editForm.get('imgFileContentType').value}}, {{byteSize(editForm.get('imgFile').value)}}</span>
+                            <button type="button" (click)="editForm.patchValue({imgFile: null});editForm.patchValue({imgFileContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_imgFile" (change)="setFileData($event, 'imgFile', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="imgFile" id="field_imgFile"
+                           formControlName="imgFile"/>
+                    <input type="hidden" class="form-control" name="imgFileContentType" id="field_imgFileContentType"
+                           formControlName="imgFileContentType" />
+                    <div *ngIf="editForm.get('imgFile').invalid && (editForm.get('imgFile').dirty || editForm.get('imgFile').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('imgFile').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platemillApp.pictureOfEvent.eventPM" for="field_eventPM">Event PM</label>
+                    <select class="form-control" id="field_eventPM" name="eventPM" formControlName="eventPM">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="eventOfPlateMillOption.id === editForm.get('eventPM').value?.id ? editForm.get('eventPM').value : eventOfPlateMillOption" *ngFor="let eventOfPlateMillOption of eventofplatemills; trackBy: trackEventOfPlateMillById">{{eventOfPlateMillOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

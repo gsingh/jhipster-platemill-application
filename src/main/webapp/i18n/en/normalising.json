@@ -1,0 +1,26 @@
+{
+  "platemillApp": {
+    "normalising": {
+      "home": {
+        "title": "Normalisings",
+        "createLabel": "Create a new Normalising",
+        "createOrEditLabel": "Create or edit a Normalising",
+        "search": "Search for Normalising"
+      },
+      "created": "A new Normalising is created with identifier {{ param }}",
+      "updated": "A Normalising is updated with identifier {{ param }}",
+      "deleted": "A Normalising is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Normalising {{ id }}?"
+      },
+      "detail": {
+        "title": "Normalising"
+      },
+      "normalisingDate": "Normalising Date",
+      "shift": "Shift",
+      "noOfPlates": "No Of Plates",
+      "normalisedTonnage": "Normalised Tonnage",
+      "manager": "Manager"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "platemillApp": {
+    "heavyPlateFinished": {
+      "home": {
+        "title": "Heavy Plate Finisheds",
+        "createLabel": "Create a new Heavy Plate Finished",
+        "createOrEditLabel": "Create or edit a Heavy Plate Finished",
+        "search": "Search for Heavy Plate Finished"
+      },
+      "created": "A new Heavy Plate Finished is created with identifier {{ param }}",
+      "updated": "A Heavy Plate Finished is updated with identifier {{ param }}",
+      "deleted": "A Heavy Plate Finished is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Heavy Plate Finished {{ id }}?"
+      },
+      "detail": {
+        "title": "Heavy Plate Finished"
+      },
+      "hPFinishedDate": "H P Finished Date",
+      "shift": "Shift",
+      "noOfPlates": "No Of Plates",
+      "hPFinishedTonnage": "H P Finished Tonnage",
+      "manager": "Manager"
+    }
+  }
+}

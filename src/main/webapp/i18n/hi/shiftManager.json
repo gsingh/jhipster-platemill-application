@@ -1,0 +1,28 @@
+{
+  "platemillApp": {
+    "shiftManager": {
+      "home": {
+        "title": "ShiftManagers",
+        "createLabel": "नया Shift Manager बनाएँ",
+        "createOrEditLabel": "Shift Manager बनाएँ या संपादित करें",
+        "search": "Shift Manager खोजें"
+      },
+      "created": "एक नया Shift Manager [identifier: {{ param }}] तैयार है",
+      "updated": "एक Shift Manager [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Shift Manager [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Shift Manager [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Shift Manager"
+      },
+      "name": "Name",
+      "designation": "Designation",
+      "mobileNumber": "Mobile Number",
+      "prod": "Prod",
+      "hpFinish": "Hp Finish",
+      "normalised": "Normalised",
+      "shipping": "Shipping"
+    }
+  }
+}

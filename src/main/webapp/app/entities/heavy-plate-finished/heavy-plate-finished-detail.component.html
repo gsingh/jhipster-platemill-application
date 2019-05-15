@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="heavyPlateFinished">
+            <h2><span jhiTranslate="platemillApp.heavyPlateFinished.detail.title">Heavy Plate Finished</span> {{heavyPlateFinished.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="platemillApp.heavyPlateFinished.hPFinishedDate">H P Finished Date</span></dt>
+                <dd>
+                    <span>{{heavyPlateFinished.hPFinishedDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="platemillApp.heavyPlateFinished.shift">Shift</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'platemillApp.Shift.' + heavyPlateFinished.shift}}">{{heavyPlateFinished.shift}}</span>
+                </dd>
+                <dt><span jhiTranslate="platemillApp.heavyPlateFinished.noOfPlates">No Of Plates</span></dt>
+                <dd>
+                    <span>{{heavyPlateFinished.noOfPlates}}</span>
+                </dd>
+                <dt><span jhiTranslate="platemillApp.heavyPlateFinished.hPFinishedTonnage">H P Finished Tonnage</span></dt>
+                <dd>
+                    <span>{{heavyPlateFinished.hPFinishedTonnage}}</span>
+                </dd>
+                <dt><span jhiTranslate="platemillApp.heavyPlateFinished.manager">Manager</span></dt>
+                <dd>
+                    <div *ngIf="heavyPlateFinished.manager">
+                        <a [routerLink]="['/shift-manager', heavyPlateFinished.manager?.id, 'view']">{{heavyPlateFinished.manager?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/heavy-plate-finished', heavyPlateFinished.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

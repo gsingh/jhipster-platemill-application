@@ -1,0 +1,24 @@
+{
+  "platemillApp": {
+    "eventOfPlateMill": {
+      "home": {
+        "title": "Event Of Plate Mills",
+        "createLabel": "Create a new Event Of Plate Mill",
+        "createOrEditLabel": "Create or edit a Event Of Plate Mill",
+        "search": "Search for Event Of Plate Mill"
+      },
+      "created": "A new Event Of Plate Mill is created with identifier {{ param }}",
+      "updated": "A Event Of Plate Mill is updated with identifier {{ param }}",
+      "deleted": "A Event Of Plate Mill is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Event Of Plate Mill {{ id }}?"
+      },
+      "detail": {
+        "title": "Event Of Plate Mill"
+      },
+      "eventDate": "Event Date",
+      "eventName": "Event Name",
+      "pictureOfEvent": "Picture Of Event"
+    }
+  }
+}

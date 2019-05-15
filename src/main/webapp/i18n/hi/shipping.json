@@ -1,0 +1,27 @@
+{
+  "platemillApp": {
+    "shipping": {
+      "home": {
+        "title": "Shippings",
+        "createLabel": "नया Shipping बनाएँ",
+        "createOrEditLabel": "Shipping बनाएँ या संपादित करें",
+        "search": "Shipping खोजें"
+      },
+      "created": "एक नया Shipping [identifier: {{ param }}] तैयार है",
+      "updated": "एक Shipping [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Shipping [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Shipping [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Shipping"
+      },
+      "shippingDate": "Shipping Date",
+      "shift": "Shift",
+      "noOfWagons": "No Of Wagons",
+      "noOfTrailers": "No Of Trailers",
+      "shippedTonnage": "Shipped Tonnage",
+      "manager": "Manager"
+    }
+  }
+}

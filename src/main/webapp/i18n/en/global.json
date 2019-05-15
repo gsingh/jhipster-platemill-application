@@ -7,6 +7,13 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "production": "Production",
+        "eventOfPlateMill": "Event Of Plate Mill",
+        "pictureOfEvent": "Picture Of Event",
+        "shiftManager": "Shift Manager",
+        "heavyPlateFinished": "Heavy Plate Finished",
+        "normalising": "Normalising",
+        "shipping": "Shipping",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

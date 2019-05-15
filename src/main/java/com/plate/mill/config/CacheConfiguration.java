@@ -46,6 +46,18 @@ public class CacheConfiguration {
             createCache(cm, com.plate.mill.domain.User.class.getName());
             createCache(cm, com.plate.mill.domain.Authority.class.getName());
             createCache(cm, com.plate.mill.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.plate.mill.domain.Production.class.getName());
+            createCache(cm, com.plate.mill.domain.EventOfPlateMill.class.getName());
+            createCache(cm, com.plate.mill.domain.EventOfPlateMill.class.getName() + ".pictureOfEvents");
+            createCache(cm, com.plate.mill.domain.PictureOfEvent.class.getName());
+            createCache(cm, com.plate.mill.domain.ShiftManager.class.getName());
+            createCache(cm, com.plate.mill.domain.ShiftManager.class.getName() + ".prods");
+            createCache(cm, com.plate.mill.domain.ShiftManager.class.getName() + ".hpFinishes");
+            createCache(cm, com.plate.mill.domain.ShiftManager.class.getName() + ".normaliseds");
+            createCache(cm, com.plate.mill.domain.ShiftManager.class.getName() + ".shippings");
+            createCache(cm, com.plate.mill.domain.HeavyPlateFinished.class.getName());
+            createCache(cm, com.plate.mill.domain.Normalising.class.getName());
+            createCache(cm, com.plate.mill.domain.Shipping.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -1,0 +1,26 @@
+{
+  "platemillApp": {
+    "heavyPlateFinished": {
+      "home": {
+        "title": "HeavyPlateFinisheds",
+        "createLabel": "नया Heavy Plate Finished बनाएँ",
+        "createOrEditLabel": "Heavy Plate Finished बनाएँ या संपादित करें",
+        "search": "Heavy Plate Finished खोजें"
+      },
+      "created": "एक नया Heavy Plate Finished [identifier: {{ param }}] तैयार है",
+      "updated": "एक Heavy Plate Finished [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Heavy Plate Finished [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Heavy Plate Finished [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Heavy Plate Finished"
+      },
+      "hPFinishedDate": "H P Finished Date",
+      "shift": "Shift",
+      "noOfPlates": "No Of Plates",
+      "hPFinishedTonnage": "H P Finished Tonnage",
+      "manager": "Manager"
+    }
+  }
+}

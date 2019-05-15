@@ -1,0 +1,24 @@
+{
+  "platemillApp": {
+    "pictureOfEvent": {
+      "home": {
+        "title": "Picture Of Events",
+        "createLabel": "Create a new Picture Of Event",
+        "createOrEditLabel": "Create or edit a Picture Of Event",
+        "search": "Search for Picture Of Event"
+      },
+      "created": "A new Picture Of Event is created with identifier {{ param }}",
+      "updated": "A Picture Of Event is updated with identifier {{ param }}",
+      "deleted": "A Picture Of Event is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Picture Of Event {{ id }}?"
+      },
+      "detail": {
+        "title": "Picture Of Event"
+      },
+      "picDate": "Pic Date",
+      "imgFile": "Img File",
+      "eventPM": "Event PM"
+    }
+  }
+}

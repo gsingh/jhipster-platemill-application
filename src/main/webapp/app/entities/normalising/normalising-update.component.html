@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-normalising-heading" jhiTranslate="platemillApp.normalising.home.createOrEditLabel">Create or edit a Normalising</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!normalising.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platemillApp.normalising.normalisingDate" for="field_normalisingDate">Normalising Date</label>
+                    <div class="input-group">
+                        <input id="field_normalisingDate" type="text" class="form-control" name="normalisingDate" ngbDatepicker  #normalisingDateDp="ngbDatepicker" formControlName="normalisingDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="normalisingDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('normalisingDate').invalid && (editForm.get('normalisingDate').dirty || editForm.get('normalisingDate').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('normalisingDate').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platemillApp.normalising.shift" for="field_shift">Shift</label>
+                    <select class="form-control" name="shift" formControlName="shift" id="field_shift">
+                        <option value="A">{{'platemillApp.Shift.A' | translate}}</option>
+                        <option value="B">{{'platemillApp.Shift.B' | translate}}</option>
+                        <option value="C">{{'platemillApp.Shift.C' | translate}}</option>
+                    </select>
+                    <div *ngIf="editForm.get('shift').invalid && (editForm.get('shift').dirty || editForm.get('shift').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('shift').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platemillApp.normalising.noOfPlates" for="field_noOfPlates">No Of Plates</label>
+                    <input type="number" class="form-control" name="noOfPlates" id="field_noOfPlates"
+                           formControlName="noOfPlates"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platemillApp.normalising.normalisedTonnage" for="field_normalisedTonnage">Normalised Tonnage</label>
+                    <input type="number" class="form-control" name="normalisedTonnage" id="field_normalisedTonnage"
+                           formControlName="normalisedTonnage"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platemillApp.normalising.manager" for="field_manager">Manager</label>
+                    <select class="form-control" id="field_manager" name="manager" formControlName="manager">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="shiftManagerOption.id === editForm.get('manager').value?.id ? editForm.get('manager').value : shiftManagerOption" *ngFor="let shiftManagerOption of shiftmanagers; trackBy: trackShiftManagerById">{{shiftManagerOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
