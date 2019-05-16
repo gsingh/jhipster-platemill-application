@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -35,6 +35,7 @@ export class PictureOfEventUpdateComponent implements OnInit {
     protected jhiAlertService: JhiAlertService,
     protected pictureOfEventService: PictureOfEventService,
     protected eventOfPlateMillService: EventOfPlateMillService,
+    protected elementRef: ElementRef,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -94,6 +95,16 @@ export class PictureOfEventUpdateComponent implements OnInit {
       () => console.log('blob added'), // sucess
       this.onError
     );
+  }
+
+  clearInputImage(field: string, fieldContentType: string, idInput: string) {
+    this.editForm.patchValue({
+      [field]: null,
+      [fieldContentType]: null
+    });
+    if (this.elementRef && idInput && this.elementRef.nativeElement.querySelector('#' + idInput)) {
+      this.elementRef.nativeElement.querySelector('#' + idInput).value = null;
+    }
   }
 
   previousState() {

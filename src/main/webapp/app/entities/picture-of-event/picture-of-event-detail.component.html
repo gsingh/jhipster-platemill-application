@@ -12,7 +12,9 @@
                 <dt><span jhiTranslate="platemillApp.pictureOfEvent.imgFile">Img File</span></dt>
                 <dd>
                     <div *ngIf="pictureOfEvent.imgFile">
-                        <a (click)="openFile(pictureOfEvent.imgFileContentType, pictureOfEvent.imgFile)" jhiTranslate="entity.action.open">open</a>
+                        <a (click)="openFile(pictureOfEvent.imgFileContentType, pictureOfEvent.imgFile)">
+                            <img [src]="'data:' + pictureOfEvent.imgFileContentType + ';base64,' + pictureOfEvent.imgFile" style="max-width: 100%;" alt="pictureOfEvent image"/>
+                        </a>
                         {{pictureOfEvent.imgFileContentType}}, {{byteSize(pictureOfEvent.imgFile)}}
                     </div>
                 </dd>

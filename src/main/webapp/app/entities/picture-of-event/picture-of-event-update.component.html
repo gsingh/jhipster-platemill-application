@@ -21,15 +21,14 @@
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="platemillApp.pictureOfEvent.imgFile" for="field_imgFile">Img File</label>
                     <div>
+                        <img [src]="'data:' + editForm.get('imgFileContentType').value + ';base64,' + editForm.get('imgFile').value" style="max-height: 100px;" *ngIf="editForm.get('imgFile').value" alt="pictureOfEvent image"/>
                         <div *ngIf="editForm.get('imgFile').value" class="form-text text-danger clearfix">
-                            <a class="pull-left" (click)="openFile(editForm.get('imgFileContentType').value, editForm.get('imgFile').value)" jhiTranslate="entity.action.open">open</a><br>
                             <span class="pull-left">{{editForm.get('imgFileContentType').value}}, {{byteSize(editForm.get('imgFile').value)}}</span>
-                            <button type="button" (click)="editForm.patchValue({imgFile: null});editForm.patchValue({imgFileContentType: null});"
-                                    class="btn btn-secondary btn-xs pull-right">
+                            <button type="button" (click)="clearInputImage('imgFile', 'imgFileContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
                                 <fa-icon [icon]="'times'"></fa-icon>
                             </button>
                         </div>
-                        <input type="file" id="file_imgFile" (change)="setFileData($event, 'imgFile', false)" jhiTranslate="entity.action.addblob"/>
+                        <input type="file" id="file_imgFile" (change)="setFileData($event, 'imgFile', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
                     </div>
                     <input type="hidden" class="form-control" name="imgFile" id="field_imgFile"
                            formControlName="imgFile"/>

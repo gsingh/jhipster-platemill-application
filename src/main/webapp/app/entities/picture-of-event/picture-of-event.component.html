@@ -41,7 +41,9 @@
                 <td><a [routerLink]="['/picture-of-event', pictureOfEvent.id, 'view' ]">{{pictureOfEvent.id}}</a></td>
                 <td>{{pictureOfEvent.picDate | date:'mediumDate'}}</td>
                 <td>
-                    <a *ngIf="pictureOfEvent.imgFile" (click)="openFile(pictureOfEvent.imgFileContentType, pictureOfEvent.imgFile)" jhiTranslate="entity.action.open">open</a>
+                    <a *ngIf="pictureOfEvent.imgFile" (click)="openFile(pictureOfEvent.imgFileContentType, pictureOfEvent.imgFile)">
+                        <img [src]="'data:' + pictureOfEvent.imgFileContentType + ';base64,' + pictureOfEvent.imgFile" style="max-height: 30px;" alt="pictureOfEvent image"/>
+                    </a>
                     <span *ngIf="pictureOfEvent.imgFile">{{pictureOfEvent.imgFileContentType}}, {{byteSize(pictureOfEvent.imgFile)}}</span>
                 </td>
                 <td>

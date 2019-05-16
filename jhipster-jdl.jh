@@ -12,7 +12,7 @@ eventName String required
 
 entity PictureOfEvent {
 picDate LocalDate
-imgFile Blob required
+imgFile ImageBlob required
 }
 
 enum Shift {

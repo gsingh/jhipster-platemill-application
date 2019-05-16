@@ -8,7 +8,7 @@
         {
             "fieldName": "imgFile",
             "fieldType": "byte[]",
-            "fieldTypeBlobContent": "any",
+            "fieldTypeBlobContent": "image",
             "fieldValidateRules": [
                 "required"
             ]
